@@ -1,59 +1,26 @@
-# SwimmingShop
+# SwimmingShop | Proyecto Final TUDAI 2026
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.0.7.
+Proyecto de e-commerce especializado en insumos de natación, desarrollado para la cátedra de Seminario de la carrera TUDAI (UNICEN).
 
-## Development server
+## Descripción del Proyecto
+Aplicación web desarrollada en Angular enfocada en la gestión de catálogo y ventas. Permite a los usuarios visualizar productos, gestionar su carrito de compras y realizar transacciones que actualizan el inventario en tiempo real.
 
-To start a local development server, run:
+## Características Técnicas
+* **Arquitectura:** Basada en componentes y servicios compartidos.
+* **Reactividad:** Gestión de estado global mediante `BehaviorSubject` (RxJS).
+* **Persistencia:** Consumo de API externa (MockAPI) mediante métodos HTTP (GET para listado, PUT para actualización de stock).
+* **Manejo de Errores:** Implementación de bloques `catchError` y estados de carga (UX) para garantizar la robustez.
+* **Limpieza:** Gestión manual de suscripciones (`ngOnDestroy`) para evitar fugas de memoria.
 
-```bash
-ng serve
-```
+## Integrante
+* **Nombre:** D'Annunzio Julieta
+* **DNI:** 39550725
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## Instrucciones para el Docente
+Para visualizar el proyecto:
+1. **Acceso rápido:** [Click aquí para abrir en StackBlitz](https://stackblitz.com/~/github.com/julidann/Seminario_Angular_2026)
+2. **Ejecución local:**
+   - Clonar el repositorio: `git clone https://github.com/julidann/Seminario_Angular_2026.git`
+   - Instalar dependencias: `npm install`
+   - Iniciar servidor: `ng serve`
+   - Acceder en: `http://localhost:4200`
