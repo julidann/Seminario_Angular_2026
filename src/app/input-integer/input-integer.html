@@ -1,0 +1,18 @@
+<div class="d-flex align-items-center gap-1">
+  
+  <button class="btn btn-sm btn-outline-secondary" 
+          (click)="downQuantity()" 
+          [disabled]="quantity <= 0">-</button>
+  
+
+  <input type="number" 
+         class="form-control form-control-sm text-center" 
+         style="width: 60px;"
+         [value]="quantity"
+         (input)="onChangeQuantity($event)">
+  
+ 
+  <button class="btn btn-sm btn-outline-secondary" 
+          (click)="upQuantity()" 
+          [disabled]="quantity >= max">+</button>
+</div>

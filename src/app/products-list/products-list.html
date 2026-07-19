@@ -1,0 +1,37 @@
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  
+  <div class="col" *ngFor="let prod of products">
+    <div class="card h-100 shadow-sm" [ngClass]="{'border-success': prod.clearance}">
+     
+      <img [src]="prod.image" [alt]="prod.name" class="card-img-top" style="height: 200px; object-fit: cover;">
+      
+      <div class="card-body">
+        <h5 class="card-title fw-bold">{{ prod.name }}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{ prod.type }}</h6>
+        <p class="card-text fs-4 fw-bold text-primary">
+          {{ prod.price | currency:'ARS':'symbol-narrow':'1.0-0' }}
+        </p>
+        
+        <div class="mb-3">
+          <span *ngIf="prod.stock > 0" class="badge bg-success">Stock: {{ prod.stock }}</span>
+          <span *ngIf="prod.stock === 0" class="badge bg-danger">SIN STOCK</span>
+        </div>
+
+        <app-input-integer 
+          [(quantity)]="prod.quantity" 
+          [max]="prod.stock">
+        </app-input-integer>
+      </div>
+
+      <div class="card-footer bg-white border-top-0 pb-3">
+        <button 
+          class="btn btn-success w-100 fw-bold" 
+          (click)="addToCart(prod)" 
+          [disabled]="prod.quantity === 0 || prod.stock === 0">
+          Agregar al Carrito
+        </button>
+      </div>
+      
+    </div>
+  </div>
+</div>
