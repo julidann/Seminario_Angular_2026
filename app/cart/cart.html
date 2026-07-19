@@ -1,0 +1,50 @@
+<div class="card border-0 shadow-sm rounded-4 sticky-top" style="top: 20px;">
+  <div class="card-body p-4">
+    <h4 class="card-title fw-bold mb-4">Tu Carrito</h4>
+
+    <!-- Lista de Items -->
+    <div *ngIf="(cartList$ | async) as cart">
+      <div *ngIf="cart.length > 0; else emptyCart">
+        
+        <div *ngFor="let item of cart" class="mb-3 pb-3 border-bottom">
+          <div class="d-flex align-items-center justify-content-between mb-2">
+            <h6 class="mb-0 fw-bold">{{ item.name }}</h6>
+            <div class="fw-bold text-primary">
+              {{ (item.price * item.quantity) | currency:'ARS':'symbol-narrow':'1.0-0' }}
+            </div>
+          </div>
+          
+          <!-- Aquí integramos tu componente para modificar cantidades -->
+          <div class="d-flex align-items-center justify-content-between">
+            <small class="text-muted">Precio: {{ item.price | currency:'ARS':'symbol-narrow':'1.0-0' }}</small>
+            <app-input-integer 
+              [(quantity)]="item.quantity" 
+              [max]="item.stock">
+            </app-input-integer>
+          </div>
+        </div>
+
+        <!-- Total General -->
+        <div class="d-flex justify-content-between align-items-center mt-4">
+          <span class="text-muted">Total</span>
+          <h4 class="fw-bold m-0">{{ getTotal(cart) | currency:'ARS':'symbol-narrow':'1.0-0' }}</h4>
+        </div>
+
+        <!-- Botón Vaciar -->
+        <div class="d-grid gap-2 mt-4">
+          <button class="btn btn-outline-danger btn-sm" (click)="clearCart()">Vaciar carrito</button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Template vacío -->
+    <ng-template #emptyCart>
+      <div class="text-center py-4">
+        <p class="text-muted">Tu carrito está vacío.</p>
+        <small class="text-primary">¡Agregá algo de Nodox!</small>
+      </div>
+    </ng-template>
+
+  </div>
+</div>

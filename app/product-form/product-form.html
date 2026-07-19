@@ -1,0 +1,67 @@
+<div class="container my-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+      
+      <!-- Encabezado del Formulario -->
+      <div class="mb-4">
+        <h2 class="fw-bold">Nuevo Producto</h2>
+        <p class="text-muted">Ingresa los datos para registrar un ítem en el sistema Nodox.</p>
+      </div>
+
+      <form [formGroup]="productForm" (ngSubmit)="onSubmit()" class="card shadow-sm border-0 p-4">
+        
+        <!-- Nombre y URL en una fila -->
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label class="form-label fw-semibold">Nombre</label>
+            <input formControlName="name" class="form-control" placeholder="Ej: Gorra de silicona">
+          </div>
+          <div class="col-md-6 mb-3">
+            <label class="form-label fw-semibold">URL de Imagen</label>
+            <input formControlName="image" class="form-control" placeholder="https://...">
+          </div>
+        </div>
+
+        <!-- Descripción -->
+        <div class="mb-3">
+          <label class="form-label fw-semibold">Descripción</label>
+          <textarea formControlName="description" class="form-control" rows="3" placeholder="Detalles del producto..."></textarea>
+        </div>
+
+        <!-- Fila de Tipo, Precio y Stock -->
+        <div class="row">
+          <div class="col-md-4 mb-3">
+            <label class="form-label fw-semibold">Tipo</label>
+            <input formControlName="type" class="form-control">
+          </div>
+          <div class="col-md-4 mb-3">
+            <label class="form-label fw-semibold">Precio ($)</label>
+            <input type="number" formControlName="price" class="form-control">
+          </div>
+          <div class="col-md-4 mb-3">
+            <label class="form-label fw-semibold">Stock</label>
+            <input type="number" formControlName="stock" class="form-control">
+          </div>
+        </div>
+
+        <!-- Checkbox de Oferta -->
+        <div class="mb-4 bg-light p-3 rounded">
+          <div class="form-check form-switch">
+            <input type="checkbox" formControlName="clearance" class="form-check-input" id="clearanceSwitch">
+            <label class="form-check-label fw-semibold" for="clearanceSwitch">¿Está en oferta?</label>
+          </div>
+        </div>
+
+        <!-- Botones de Acción -->
+        <div class="d-grid gap-2">
+          <button type="submit" class="btn btn-primary btn-lg" [disabled]="productForm.invalid">
+            Guardar Producto
+          </button>
+          <button type="button" class="btn btn-outline-secondary" routerLink="/products">
+            Cancelar
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
